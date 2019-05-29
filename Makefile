@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -c --std=c++17
 LFLAGS = -Wall
 SDL_INFLAGS = -I /usr/include/SDL2
-CATCH_INFLAGS = -I /home/mcleans/Desktop/Catch 
+CATCH_INFLAGS = -I /home/mcleans/Desktop/Catch
 SDL_LIBFLAGS = -L /usr/lib/x86_64-linux-gnu -lSDL2 -lSDL2_image -lSDL2_mixer
 TEST_OBJS = test_default.o test_graphics.o graphics.o 
 OBJS  = main.o graphics.o
