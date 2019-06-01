@@ -23,8 +23,6 @@ texture.o : texture.cpp texture.hpp
 	$(CC) $(CFLAGS) $(SDL_INFLAGS) texture.cpp
 
 
-test_graphics.o : test_graphics.cpp 
-	$(CC) $(CFLAGS) $(CATCH_INFLAGS) $(SDL_INFLAGS) test_graphics.cpp
 
 test_default.o :test_default.cpp 
 	$(CC) $(CFLAGS) $(CATCH_INFLAGS) test_default.cpp 
