@@ -3,6 +3,7 @@
 #include <SDL_image.h>
 #include "graphics.hpp"
 #include "texture.hpp"
+#include "gameMusic.hpp"
 
 
 using namespace std;
@@ -11,13 +12,15 @@ using namespace std;
 int main(void){
 
     Graphics gameGraphics;
-    
     gameGraphics.init();
     gameGraphics.createWindowAndtexture();
+
     customTexture playerVehicle(gameGraphics.renderer,"images/car.png");
     customTexture firstEnemyCar(gameGraphics.renderer,"images/car-red.png");
     customTexture secondEnemyCar(gameGraphics.renderer,"images/car-red.png");
     customTexture thirdEnemyCar(gameGraphics.renderer,"images/car-red.png");
+
+    gameMusic sounds;
 
     SDL_Event event;
     bool quit = false;
@@ -37,6 +40,8 @@ int main(void){
                             300,
                             100,
                             200};
+
+    Mix_PlayMusic(sounds.gameSound,-1);
 
     while(!quit){
         SDL_SetRenderDrawColor(gameGraphics.renderer,
@@ -70,6 +75,23 @@ int main(void){
 
         while(SDL_PollEvent(&event)){
             if(event.type==SDL_QUIT) quit=true;
+
+           else if(event.type==SDL_KEYDOWN){
+               switch(event.key.keysym.sym){
+                   case SDLK_UP:
+                   Mix_PlayChannel(-1,sounds.carStart,0);
+                   break;
+
+                   case SDLK_s:
+                   Mix_HaltMusic();
+                   break;
+                
+
+
+
+               }
+           }
+            
 
         }
     }
